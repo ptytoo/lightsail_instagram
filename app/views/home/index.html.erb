@@ -1,2 +1,17 @@
 <h1>인스타그램입니다.</h1>
-<p>실전 어플리케이션 배포</p>
+<p id="ptag">당신의 이름을 입력해주세요</p>
+<%= form_tag "", method: :get, id: "name_input" do%>
+  <%= text_field_tag :keyword %>
+  <%= submit_tag :hello %>
+<% end %>
+
+<script>
+  $(function(){
+    var form = $('#name_input');
+    form.on('submit', function(e){
+        e.preventDefault();
+        var name = $('#keyword').val();
+        $('#ptag').text(name+"님 환영합니다.");
+    });
+  });
+</script>
